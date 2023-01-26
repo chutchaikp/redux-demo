@@ -6,7 +6,7 @@ const Navbar = () => {
   const name = useSelector((state) => {
     return state.user.userInfo.name;
   });
-  console.log('Rendering Navbar');
+
   return (
     <div className="navbar">
       <div className="title">Hi, {name}</div>

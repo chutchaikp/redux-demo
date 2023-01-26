@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import Error from '../components/Error';
 import { updateUser } from '../redux/apiCall';
 import { updateUser2 } from '../redux/userSlice';
 // import { udpate } from '../redux/userSlice';
@@ -37,15 +38,19 @@ const About = () => {
 
         <button
           disabled={pending}
-          onClick={(e) => {
+          onClick={async (e) => {
             e.preventDefault();
             // dispatch(udpate({ name, email }));
             // updateUser({ name, email }, dispatch);
-            dispatch(updateUser2({ name, email }));
+            const res = await dispatch(updateUser2({ name, email }));
+
+            debugger;
           }}
         >
           UPDATE
         </button>
+
+        {error && <Error>{error}</Error>}
       </form>
     </div>
   );

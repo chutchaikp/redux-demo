@@ -5,7 +5,7 @@ const Footer = () => {
   const user = useSelector((state) => {
     return state.user.userInfo;
   });
-  console.log('Footer rendering');
+
   return (
     <div className="footer">
       <h3>
